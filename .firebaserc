@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "master-gym-e7697": {
+      "hosting": {
+        "gym": [
+          "master-gym-e7697"
+        ]
+      }
+    }
+  }
+}

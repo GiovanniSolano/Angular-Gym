@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="text-center">
+        <img src="assets/Cat03.jpg" class="img-responsive image mt-5">
+        <h3>Bienvenido, por favor ingrese sus datos</h3>
+    </div>
+    <form [formGroup]="formularioLogin">
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" [class.is-invalid]="correoNoValido" formControlName="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
+            <small *ngIf="correoNoValido" class="text-danger">
+                Ingrese un correo válido
+              </small>
+        </div>
+        <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" [class.is-invalid]="passwordNoValido" formControlName="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+            <small *ngIf="passwordNoValido" class="text-danger">
+                Ingrese su contraseña
+              </small>
+        </div>
+
+        <button type="submit" (click)="ingresar()" [disabled]="formularioLogin.invalid" class="btn btn-primary">Ingresar</button>
+
+    </form>
+
+    <p>giovanni@gmail.com / 123456</p>
+</div>
+
+<app-spinner></app-spinner>

@@ -1,0 +1,9 @@
+<div class="card">
+    <img [src]="cliente.imageUrl" class="card-img-top imgCliente" alt="{{cliente.nombre}}">
+    <div class="card-body">
+        <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h5>
+        <p>{{cliente.telefono}}</p>
+        <a [routerLink]="['/agregar-cliente', cliente.id]" class="card-link">Editar</a>
+        <a class="card-link text-danger">Desactivar</a>
+    </div>
+</div>

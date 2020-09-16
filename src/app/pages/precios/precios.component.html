@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Precios</h4>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let precio of preciosService.precios" (click)="asignar(precio)">{{precio.nombre}}<i class="fas fa-edit"></i></li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <h4 class="text-center mb-2">Agregar/Editar</h4>
+            <form [formGroup]="formularioPrecio">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input formControlName="nombre" [class.is-invalid]="nombreValido" class="form-control" type="text">
+                    <small *ngIf="nombreValido" class="text-danger">
+                        Ingrese el nombre
+                      </small>
+                </div>
+                <div class="form-group">
+                    <label for="">Costo</label>
+                    <input formControlName="costo" [class.is-invalid]="costoValido" class="form-control" type="number">
+                    <small *ngIf="costoValido" class="text-danger">
+                        Ingrese el costo
+                      </small>
+                </div>
+                <div class="form-group">
+                    <label for="">Duración</label>
+                    <input formControlName="duracion" [class.is-invalid]="duracionValido" class="form-control" type="number">
+                    <small *ngIf="duracionValido" class="text-danger">
+                        Ingrese la duración
+                      </small>
+                </div>
+                <div class="form-group">
+                    <label for="">Tipo de duración</label>
+                    <select formControlName="tipoDuracion" [class.is-invalid]="tipoDuracionValido" class="form-control" name="" id="">
+                        <option value="1">Día</option>
+                        <option value="2">Semana</option>
+                        <option value="3">Quincena</option>
+                        <option value="4">Mes</option>
+                        <option value="5">Año</option>
+                    </select>
+                </div>
+                <small *ngIf="tipoDuracionValido" class="text-danger">
+                    Seleccione el tipo de duración
+                  </small>
+                <div class="form-group text-center mt-4">
+
+                    <button *ngIf="!preciosService.esEditar" class="btn btn-primary mr-3" [disabled]="formularioPrecio.invalid" (click)="agregarPrecio()">Agregar</button>
+                    <button *ngIf="preciosService.esEditar" class="btn btn-secondary" (click)="editarPrecio()" [disabled]="formularioPrecio.invalid">Editar</button>
+                    <button *ngIf="preciosService.esEditar" class="btn btn-warning ml-4" (click)="limpiar()">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <h4>Listado de clientes</h4>
+
+    <form>
+        <div class="form-group">
+            <input type="text" placeholder="Buscar clientes" class="form-control">
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let cliente of usuariosService.clientes">
+            <app-card [cliente]="cliente"></app-card>
+        </div>
+    </div>
+</div>
